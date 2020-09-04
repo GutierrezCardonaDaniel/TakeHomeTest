@@ -1,6 +1,7 @@
 package TakeHomeTest.PapaJohnsWebApp.Pages.MainPage.Panels;
 
 import TakeHomeTest.PapaJohnsWebApp.Helpers.Navigator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -78,6 +79,7 @@ public class ProductMainFields {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.elementToBeClickable(btn_addShoppingCart));
         wait.until(ExpectedConditions.visibilityOf(btn_addShoppingCart));
+
         btn_addShoppingCart.click();
         return new ShoppingCart(driver);
     }

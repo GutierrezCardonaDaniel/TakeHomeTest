@@ -48,7 +48,6 @@ public class ShoppingCart {
     public String getTotalPrice(){
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.visibilityOf(notification));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#loader-container")));
         wait.until(ExpectedConditions.visibilityOfAllElements(input_productQuantity));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[title='Hacer pedido']")));
 
