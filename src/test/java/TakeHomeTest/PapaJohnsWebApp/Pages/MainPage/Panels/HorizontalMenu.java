@@ -1,5 +1,6 @@
 package TakeHomeTest.PapaJohnsWebApp.Pages.MainPage.Panels;
 
+import TakeHomeTest.PapaJohnsWebApp.Helpers.Navigator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,9 @@ public class HorizontalMenu {
             if (element.getAttribute("title").equals(Option)){
                 wait.until(ExpectedConditions.visibilityOf(element));
                 wait.until(ExpectedConditions.elementToBeClickable(element));
-                element.click();
+                //element.click();
+                //Navigator.ForceClick(element);
+                Navigator.HoverElement(element);
                 //wait.until(ExpectedConditions.attributeToBe(element,"style","display: block;"));
             }
         }

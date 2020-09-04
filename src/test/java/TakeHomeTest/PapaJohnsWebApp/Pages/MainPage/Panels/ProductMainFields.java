@@ -1,5 +1,6 @@
 package TakeHomeTest.PapaJohnsWebApp.Pages.MainPage.Panels;
 
+import TakeHomeTest.PapaJohnsWebApp.Helpers.Navigator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,18 +42,23 @@ public class ProductMainFields {
 
     public enum PizzaSize{Personal,Mediana,Familiar,MegaFamiliar}
     public void selectPizzaSize(PizzaSize pizzaSize){
+        WebDriverWait wait = new WebDriverWait(driver,5);
         switch (pizzaSize){
             case Personal:
-                btn_PersonalSize.click();
+                wait.until(ExpectedConditions.elementToBeClickable(btn_PersonalSize));
+                Navigator.ForceClick(btn_FamiliarSize);
                 break;
             case Mediana:
-                btn_MedianaSize.click();
+                wait.until(ExpectedConditions.elementToBeClickable(btn_MedianaSize));
+                Navigator.ForceClick(btn_FamiliarSize);
                 break;
             case Familiar:
-                btn_FamiliarSize.click();
+                wait.until(ExpectedConditions.elementToBeClickable(btn_FamiliarSize));
+                Navigator.ForceClick(btn_FamiliarSize);
                 break;
             case MegaFamiliar:
-                btn_MegaFamiliarSize.click();
+                wait.until(ExpectedConditions.elementToBeClickable(btn_MegaFamiliarSize));
+                Navigator.ForceClick(btn_FamiliarSize);
                 break;
 
         }
@@ -69,6 +75,9 @@ public class ProductMainFields {
     }
 
     public ShoppingCart goToShoppingCart(){
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(btn_addShoppingCart));
+        wait.until(ExpectedConditions.visibilityOf(btn_addShoppingCart));
         btn_addShoppingCart.click();
         return new ShoppingCart(driver);
     }
